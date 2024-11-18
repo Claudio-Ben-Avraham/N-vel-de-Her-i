@@ -1,0 +1,106 @@
+<!-- 
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classificador de Nível de Herói</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    h1 {
+      color: #5a5aff;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      margin-top: 5px;
+      padding: 5px;
+      width: 100%;
+      max-width: 300px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #5a5aff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4a4ad1;
+    }
+    .resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Classificador de Nível de Herói</h1>
+  <form id="heroForm">
+    <label for="nome">Nome do Herói:</label>
+    <input type="text" id="nome" placeholder="Digite o nome do herói" required>
+    
+    <label for="xp">XP do Herói:</label>
+    <input type="number" id="xp" placeholder="Digite a experiência (XP)" required>
+    
+    <button type="submit">Classificar</button>
+  </form>
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    document.getElementById("heroForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Capturar os valores dos inputs
+      const nome = document.getElementById("nome").value;
+      const xp = parseInt(document.getElementById("xp").value);
+
+      let nivel;
+
+      // Determinar o nível do herói com base na XP
+      if (xp < 1000) {
+        nivel = "Ferro";
+      } else if (xp >= 1001 && xp <= 2000) {
+        nivel = "Bronze";
+      } else if (xp >= 2001 && xp <= 5000) {
+        nivel = "Prata";
+      } else if (xp >= 5001 && xp <= 7000) {
+        nivel = "Ouro";
+      } else if (xp >= 7001 && xp <= 8000) {
+        nivel = "Platina";
+      } else if (xp >= 8001 && xp <= 9000) {
+        nivel = "Ascendente";
+      } else if (xp >= 9001 && xp <= 10000) {
+        nivel = "Imortal";
+      } else if (xp >= 10001) {
+        nivel = "Radiante";
+      } else {
+        nivel = "Indefinido";
+      }
+
+      // Exibir o resultado
+      const resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.textContent = `O Herói de nome ${nome} está no nível de ${nivel}`;
+    });
+  </script>
+</body>
+</html>
